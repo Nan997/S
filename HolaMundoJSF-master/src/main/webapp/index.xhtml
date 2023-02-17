@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:b="http://bootsfaces.net/ui">
+    
+    <h:head>
+        <title>Restaurante App</title>
+        
+        
+    </h:head>
+    
+    <h:body>       
+    	
+    
+    	
+    	<h:form id="formLogin">
+    	
+    		<b:growl id="msgValidaciones" placementFrom="top" showDetail="true" showSummary="true" escape="true">
+    		
+    		</b:growl>
+			
+			<b:container id="containerLogin" layout="fluid">
+				<b:panel id="pnlLogin" title="Inicio de sesión" look="primary" collapsible="false">
+					<b:panelGrid columns="2" size="lg">
+						
+<!-- 						<b:image value="resources/images/login/login.jpg" style="width: 100%"></b:image> -->
+						
+						<b:row>
+							<b:column mediumScreen="2">
+								<h:outputText value="Usuario: "></h:outputText>
+							</b:column>
+							
+							<b:column mediumScreen="10">
+								<b:inputText  placeholder="Ingresa tu usuario" id="txtUsuario" value="#{login.username}" required="true" requiredMessage="El usuario es requerido">
+									<f:facet name="prepend">
+										<b:icon name="user"></b:icon>
+									</f:facet>								
+								</b:inputText>
+								<b:focus target="txtUsuario"></b:focus>
+							</b:column>
+							
+							<b:column mediumScreen="2">
+								<h:outputText value="Contraseña: "></h:outputText>
+							</b:column>
+							
+							<b:column mediumScreen="10">
+								<b:inputSecret placeholder="Ingresa tu contraseña" id="txtPassword" value="#{login.password}" required="true" requiredMessage="La contraseña es requerida">
+									<f:facet name="prepend">
+										<b:icon name="lock"></b:icon>
+									</f:facet>								
+								</b:inputSecret>
+							</b:column>
+							
+							<b:column span="2"></b:column>
+							<b:column span="10">
+								<b:selectBooleanCheckbox caption="Administrador General" value="#{login.esSuperAdmin}"></b:selectBooleanCheckbox>
+							</b:column>
+							
+							<b:column span="2"></b:column>
+							<b:column span="10">
+								<b:commandButton value="Ingresar" onclick="ajax:login.entrar()" look="primary" style="width: 100%; float: right" update="pnlLogin, msgValidaciones"></b:commandButton>
+							</b:column>
+							
+						</b:row>
+												
+					</b:panelGrid>
+				</b:panel>
+			</b:container>
+			
+    	</h:form>
+    </h:body>
+</html>

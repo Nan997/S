@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:b="http://bootsfaces.net/ui">
+    
+
+	<b:container>
+		<h:form id="formNavbar">
+		<b:navBar brandImg="./resources/images/login/loginrestaurante.jpg" brandImgStyle="width: 45px" brandHref="#" fluid="true" inverse="true">
+		  <b:navbarLinks>
+		  
+		  	<!-- :::::::::::: MENU DE ADMINISTRADOR GENERAL ::::::::::::: -->
+		  
+		    <b:navLink value="Rechazados" href="adminrestaurantes.jsf" rendered="#{sessionBean.persona.superadmin}"></b:navLink>
+		    <b:navLink value="Tabla de proceso" href="admintiposrestaurantes.jsf" rendered="#{sessionBean.persona.superadmin}"></b:navLink>
+		    <b:navLink value="Aceptados" href="adminperfiles.jsf" rendered="#{sessionBean.persona.superadmin}"></b:navLink>		  	
+		  
+
+		  </b:navbarLinks>
+		</b:navBar>
+		</h:form>
+	</b:container>
+	
+	<b:container>
+		<b:row>
+		    <b:well>
+				<b:row>		
+			
+			
+				   <b:column colMd="10">
+						<h:outputText class="text-justify" value="Bienvenido: #{sessionBean.persona.nombre}"></h:outputText> <br/>
+						<h:outputText class="text-justify" value="Perfil: #{sessionBean.persona.rol.nombre}"></h:outputText> <br/>
+						<h:outputText class="text-justify" value="Universidad: #{sessionBean.persona.universidad.nombre}"></h:outputText>
+				   </b:column>
+		       </b:row>
+		    </b:well>
+		</b:row>	
+	</b:container>
+
+</ui:composition>
